@@ -1,8 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Services from "./pages/Services";
+import Contact from "./pages/Contact";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   return (
+    <>
+      <Router>
+        <Sidebar />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/services" component={Services} />
+          <Route path="/contact" component={Contact} />
+        </Switch>
+      </Router>
+    </>
+    /*
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -18,7 +34,7 @@ function App() {
           Learn React
         </a>
       </header>
-    </div>
+    </div>*/
   );
 }
 
